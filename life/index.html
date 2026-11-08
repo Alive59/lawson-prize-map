@@ -188,6 +188,8 @@ function pick(s,fromList){
 }
 function unpick(){ if(cur>=0) S[cur].mk.setStyle(style(S[cur],false)); cur=-1; document.querySelectorAll('.item.on').forEach(x=>x.classList.remove('on')); }
 apply(false);
+new ResizeObserver(()=>map.invalidateSize()).observe(document.getElementById('map'));
+requestAnimationFrame(()=>{map.invalidateSize();map.fitBounds(allBounds);});
 </script>
 </body>
 </html>
